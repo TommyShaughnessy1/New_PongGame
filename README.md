@@ -1,11 +1,11 @@
 # Instructions to download the file
  •The game file can be downloaded as a zip file from the route of the depository (TommyShaughnessy1/NEW_PongGame) by  
- •click the green "code" button  
+ •Click the green "code" button  
  •Then click  the "Download Zip" option  
  • Extract the downloaded folder to suitable location  
  • User can right click on the folder and select open with VS Code.
  • In VS code, select green run button in the top right corner  
- • The game will launch.
+ • The exe file will run and the game will be playable.
 
 # Playing the Game
 -- The aim of the game is to hit the wall behind the opposing player

@@ -12,7 +12,7 @@
  • New window appears where game is played  
  • Player A moves up by "w" on the keyboard  
  • Player A moves down by "s" on the keyboard  
- • Player B moves up by "Up" arrow on the keyboard.
+ • Player B moves up by "Up" arrow on the keyboard.  
  • Player B moves down by "Down" arrow on the keyboard.  
 
  

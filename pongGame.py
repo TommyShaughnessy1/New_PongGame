@@ -5,7 +5,7 @@ wn = turtle.Screen()
 t = turtle.Turtle()
 
 wn.title(" Pong By @Tommy Shaughnessy")
-wn.bgcolor("blue")
+wn.bgcolor("red")
 wn.setup(width=800, height=600)
 wn.tracer(0)
 

@@ -1,6 +1,6 @@
 import turtle
 
-userChoice = input("Please enter 1 for one player or 2 for two player: ")
+userChoice = input("Please enter 1 for one ball or 2 for two balls: ")
 if userChoice == "1":
 
     wn = turtle.Screen()
@@ -54,6 +54,9 @@ if userChoice == "1":
     pen.write("Player A: 0  CPU: 0", align="center", font=("Courier", 24, "normal"))
 
     # Functions
+    
+
+    # moves paddle A up 
     def paddle_a_up():
         y = paddle_a.ycor()
         y += 20
@@ -73,11 +76,18 @@ if userChoice == "1":
         y = paddle_b.ycor()
         y -= 20
         paddle_b.sety(y)
+    
+    
+
 
     # Keyboard bindings
     wn.listen()
     wn.onkeypress(paddle_a_up, "w")
     wn.onkeypress(paddle_a_down, "s")
+    wn.onkeypress(paddle_b_up, "Up")
+    wn.onkeypress(paddle_b_down, "Down")
+
+   
    
 
     # Main game loop
@@ -165,6 +175,15 @@ ball.goto(0, 0)
 ball.dx = 0.5
 ball.dy = 0.5
 
+ball2 = turtle.Turtle()
+ball2.speed(20)
+ball2.shape("square")
+ball2.color("green")
+ball2.penup()
+ball2.goto(0, 0)
+ball2.dx = -0.5
+ball2.dy = -0.5
+
 # Pen
 pen = turtle.Turtle()
 pen.speed(0)
@@ -247,4 +266,38 @@ while True:
     elif ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
         ball.dx *= -1
         
+    ball2.setx(ball2.xcor() + ball2.dx)
+    ball2.sety(ball2.ycor() + ball2.dy)
+
+    if ball2.ycor() > 290:
+        ball2.sety(290)
+        ball2.dy *= -0.3
+        
     
+    elif ball2.ycor() < -290:
+        ball2.sety(-290)
+        ball2.dy *= -0.3
+       
+
+    # Left and right
+    if ball2.xcor() > 350:
+        score_a += 1
+        pen.clear()
+        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+        ball2.goto(0, 0)
+        ball2.dx *= -0.6
+
+    elif ball2.xcor() < -350:
+        score_b += 1
+        pen.clear()
+        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+        ball2.goto(0, 0)
+        ball2.dx *= -0.6
+
+    # Paddle and ball collisions
+    if ball2.xcor() < -340 and ball2.ycor() < paddle_a.ycor() + 50 and ball2.ycor() > paddle_a.ycor() - 50:
+        ball2.dx *= -1
+      
+    
+    elif ball2.xcor() > 340 and ball2.ycor() < paddle_b.ycor() + 50 and ball2.ycor() > paddle_b.ycor() - 50:
+        ball2.dx *= -1

@@ -1,8 +1,12 @@
 import turtle
 
+# Takes in user input 
 userChoice = input("Please enter 1 for one ball or 2 for two balls: ")
+
+# If user selects one 
 if userChoice == "1":
 
+    
     wn = turtle.Screen()
     t = turtle.Turtle()
 
@@ -11,11 +15,11 @@ if userChoice == "1":
     wn.setup(width=800, height=600)
     wn.tracer(0)
 
-    # Score
+    # sets the initial Score of the game to 0-0
     score_a = 0
     score_b = 0
 
-    # Paddle A
+    # Paddle A 
     paddle_a = turtle.Turtle()
     paddle_a.speed(0)
     paddle_a.shape("square")
@@ -56,22 +60,25 @@ if userChoice == "1":
     # Functions
     
 
-    # moves paddle A up 
+# moves paddle A up by adding 20 to the ycor
     def paddle_a_up():
         y = paddle_a.ycor()
         y += 20
         paddle_a.sety(y)
 
+# moves paddle A down by subtracting 20 to the ycor
     def paddle_a_down():
         y = paddle_a.ycor()
         y -= 20
         paddle_a.sety(y)
 
+# moves paddle B up by adding 20 to the ycor
     def paddle_b_up():
         y = paddle_b.ycor()
         y += 20
         paddle_b.sety(y)
 
+# moves paddle B down by subtracting 20 to the ycor
     def paddle_b_down():
         y = paddle_b.ycor()
         y -= 20
@@ -82,9 +89,21 @@ if userChoice == "1":
 
     # Keyboard bindings
     wn.listen()
+
+    # when player press w on keyboard the paddle_a_up function invoked
+    # moving paddle A up
     wn.onkeypress(paddle_a_up, "w")
+
+     # when player press s on keyboard the paddle_a_down function invoked
+    # moving paddle A down
     wn.onkeypress(paddle_a_down, "s")
+
+    # when player press up arrow on keyboard the paddle_b_up function invoked
+    # moving paddle B up
     wn.onkeypress(paddle_b_up, "Up")
+
+    # when player press down arrow on keyboard the paddle_b_down function invoked
+    # moving paddle B down
     wn.onkeypress(paddle_b_down, "Down")
 
    
@@ -101,6 +120,7 @@ if userChoice == "1":
         # Border checking
 
         # Top and bottom
+        #Allows for the ball to bounce off the top and bottom 
         if ball.ycor() > 290:
             ball.sety(290)
             ball.dy *= -0.3
@@ -112,28 +132,32 @@ if userChoice == "1":
         
 
         # Left and right
+        # if the ball goes past 350 or -350 (off the screen)
+        # registers a score for opposing player
         if ball.xcor() > 350:
             score_a += 1
             pen.clear()
-            pen.write("Player A: {}  CPU: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+            pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
             ball.goto(0, 0)
             ball.dx *= -0.6
 
         elif ball.xcor() < -350:
             score_b += 1
             pen.clear()
-            pen.write("Player A: {}  CPU: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+            pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
             ball.goto(0, 0)
             ball.dx *= -0.6
 
         # Paddle and ball collisions
+        # Allows for ball to bounce of paddles 
         if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
             ball.dx *= -1
         
         
         elif ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
             ball.dx *= -1
-            
+
+# If user input is 2
 elif userChoice == "2":
     wn = turtle.Screen()
 t = turtle.Turtle()
@@ -143,7 +167,7 @@ wn.bgcolor("blue")
 wn.setup(width=800, height=600)
 wn.tracer(0)
 
-# Score
+ # sets the initial Score of the game to 0-0
 score_a = 0
 score_b = 0
 
@@ -175,6 +199,8 @@ ball.goto(0, 0)
 ball.dx = 0.5
 ball.dy = 0.5
 
+#Second ball in play 
+# moving in opposing direction to first ball
 ball2 = turtle.Turtle()
 ball2.speed(20)
 ball2.shape("square")
@@ -185,6 +211,7 @@ ball2.dx = -0.5
 ball2.dy = -0.5
 
 # Pen
+# Displays Player name and score
 pen = turtle.Turtle()
 pen.speed(0)
 pen.shape("square")
@@ -194,26 +221,29 @@ pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
 
-# Functions
+# moves paddle A up by adding 20 to the ycor
 def paddle_a_up():
-    y = paddle_a.ycor()
-    y += 20
-    paddle_a.sety(y)
+        y = paddle_a.ycor()
+        y += 20
+        paddle_a.sety(y)
 
+# moves paddle A down by subtracting 20 to the ycor
 def paddle_a_down():
-    y = paddle_a.ycor()
-    y -= 20
-    paddle_a.sety(y)
+        y = paddle_a.ycor()
+        y -= 20
+        paddle_a.sety(y)
 
+# moves paddle B up by adding 20 to the ycor
 def paddle_b_up():
-    y = paddle_b.ycor()
-    y += 20
-    paddle_b.sety(y)
+        y = paddle_b.ycor()
+        y += 20
+        paddle_b.sety(y)
 
+# moves paddle B down by subtracting 20 to the ycor
 def paddle_b_down():
-    y = paddle_b.ycor()
-    y -= 20
-    paddle_b.sety(y)
+        y = paddle_b.ycor()
+        y -= 20
+        paddle_b.sety(y)
 
 # Keyboard bindings
 wn.listen()
@@ -243,7 +273,10 @@ while True:
         ball.dy *= -0.3
        
 
-    # Left and right
+    
+     # Left and right
+        # if the ball goes past 350 or -350 (off the screen)
+        # registers a score for opposing player
     if ball.xcor() > 350:
         score_a += 1
         pen.clear()
@@ -259,6 +292,7 @@ while True:
         ball.dx *= -0.6
 
     # Paddle and ball collisions
+     # Allows for ball to bounce of paddles 
     if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
         ball.dx *= -1
       
@@ -279,7 +313,10 @@ while True:
         ball2.dy *= -0.3
        
 
-    # Left and right
+    
+     # Left and right
+        # if the ball goes past 350 or -350 (off the screen)
+        # registers a score for opposing player
     if ball2.xcor() > 350:
         score_a += 1
         pen.clear()
@@ -295,6 +332,7 @@ while True:
         ball2.dx *= -0.6
 
     # Paddle and ball collisions
+     # Allows for ball to bounce of paddles 
     if ball2.xcor() < -340 and ball2.ycor() < paddle_a.ycor() + 50 and ball2.ycor() > paddle_a.ycor() - 50:
         ball2.dx *= -1
       

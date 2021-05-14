@@ -1,15 +1,18 @@
 # Instructions to download the file
- •The game file can be downloaded as a zip file from the route of the depository (TommyShaughnessy1/NEW_PongGame) by  
- •Click the green "code" button  
- •Then click  the "Download Zip" option  
+ • The game file can be downloaded as a zip file from the route of the depository (TommyShaughnessy1/NEW_PongGame) by  
+ • Click the green "code" button  
+ • Then click  the "Download Zip" option  
  • Extract the downloaded folder to suitable location  
- • User can right click on the folder and select open with VS Code.
+ • User can right click on the folder and select open with VS Code  
  • In VS code, select green run button in the top right corner  
  • The exe file will run and the game will be playable.
 
 # Playing the Game
--- The aim of the game is to hit the wall behind the opposing player
---Each player has to try and protect the wall behind them by using their paddle to hit the ball.
---Player A can move their paddle up by pressing 'w' on the keyboard and down by pressing 's'
---Player B can move their paddle up by pressing the up arrow on the keyboard and down by pressing the down arrow.
--- The game can be exicted by pressing the 'X' in the top right hand corner. 
+ • User chooses 1 or 2 in terminal for number of balls  
+ • New window appears where game is played  
+ • Player A moves up by "w" on the keyboard  
+ • Player A moves down by "s" on the keyboard  
+ • Player B moves up by "Up" arrow on the keyboard.
+ • Player B moves down by "Down" arrow on the keyboard.  
+
+ 

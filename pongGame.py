@@ -3,6 +3,30 @@ import turtle
 # Takes in user input 
 userChoice = input("Please enter 1 for one ball or 2 for two balls: ")
 
+# moves paddle A up by adding 20 to the ycor
+def paddle_a_up():
+    y = paddle_a.ycor()
+    y += 20
+    paddle_a.sety(y)
+
+# moves paddle A down by subtracting 20 to the ycor
+def paddle_a_down():
+    y = paddle_a.ycor()
+    y -= 20
+    paddle_a.sety(y)
+
+# moves paddle B up by adding 20 to the ycor
+def paddle_b_up():
+    y = paddle_b.ycor()
+    y += 20
+    paddle_b.sety(y)
+
+# moves paddle B down by subtracting 20 to the ycor
+def paddle_b_down():
+    y = paddle_b.ycor()
+    y -= 20
+    paddle_b.sety(y)
+
 # If user selects one 
 if userChoice == "1":
 
@@ -60,29 +84,6 @@ if userChoice == "1":
     # Functions
     
 
-# moves paddle A up by adding 20 to the ycor
-    def paddle_a_up():
-        y = paddle_a.ycor()
-        y += 20
-        paddle_a.sety(y)
-
-# moves paddle A down by subtracting 20 to the ycor
-    def paddle_a_down():
-        y = paddle_a.ycor()
-        y -= 20
-        paddle_a.sety(y)
-
-# moves paddle B up by adding 20 to the ycor
-    def paddle_b_up():
-        y = paddle_b.ycor()
-        y += 20
-        paddle_b.sety(y)
-
-# moves paddle B down by subtracting 20 to the ycor
-    def paddle_b_down():
-        y = paddle_b.ycor()
-        y -= 20
-        paddle_b.sety(y)
     
     
 
@@ -221,29 +222,6 @@ pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
 
-# moves paddle A up by adding 20 to the ycor
-def paddle_a_up():
-        y = paddle_a.ycor()
-        y += 20
-        paddle_a.sety(y)
-
-# moves paddle A down by subtracting 20 to the ycor
-def paddle_a_down():
-        y = paddle_a.ycor()
-        y -= 20
-        paddle_a.sety(y)
-
-# moves paddle B up by adding 20 to the ycor
-def paddle_b_up():
-        y = paddle_b.ycor()
-        y += 20
-        paddle_b.sety(y)
-
-# moves paddle B down by subtracting 20 to the ycor
-def paddle_b_down():
-        y = paddle_b.ycor()
-        y -= 20
-        paddle_b.sety(y)
 
 # Keyboard bindings
 wn.listen()
